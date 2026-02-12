@@ -1,21 +1,27 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Instrument_Serif, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--font-geist",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Lumina AI - Automate Your Workflow with AI",
-  description: "Intelligent automation platform that transforms the way you work. Streamline operations, boost productivity, and unlock insights with AI-powered workflows.",
+  title: "Lumina — Workflow Intelligence",
+  description: "Precision automation for teams who build.",
 };
 
 export default function RootLayout({
@@ -24,9 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} antialiased bg-background text-text`}
+        className={`${instrumentSerif.variable} ${inter.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
